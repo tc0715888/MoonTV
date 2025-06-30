@@ -1,0 +1,42 @@
+name: Rename Project to ITV
+
+on:
+  workflow_run:
+    workflows: ["Upstream Sync"] # 在“Upstream Sync”流程成功后触发
+    types:
+      - completed
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # 我们需要一个有权限推送的 token
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Make rename script executable
+        run: chmod +x ./rename_to_itv.sh
+
+      - name: Run the rename script
+        run: ./rename_to_itv.sh
+
+      - name: Commit and push changes
+        run: |
+          # 检查是否有文件被修改
+          if [[ -z $(git status -s) ]]
+          then
+            echo "No changes to commit."
+          else
+            git add .
+            git commit -m "chore: Automatically rename project to ITV"
+            git push
+          fi
