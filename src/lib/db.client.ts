@@ -28,7 +28,7 @@ export interface PlayRecord {
 }
 
 // ---- 常量 ----
-const PLAY_RECORDS_KEY = 'moontv_play_records';
+const PLAY_RECORDS_KEY = 'ITV_play_records';
 
 // ---- 环境变量 ----
 const STORAGE_TYPE =
@@ -38,7 +38,7 @@ const STORAGE_TYPE =
     | undefined) || 'localstorage';
 
 // ---------------- 搜索历史相关常量 ----------------
-const SEARCH_HISTORY_KEY = 'moontv_search_history';
+const SEARCH_HISTORY_KEY = 'ITV_search_history';
 
 // 搜索历史最大保存条数
 const SEARCH_HISTORY_LIMIT = 20;
@@ -310,7 +310,7 @@ export interface Favorite {
 }
 
 // 收藏在 localStorage 中使用的 key
-const FAVORITES_KEY = 'moontv_favorites';
+const FAVORITES_KEY = 'ITV_favorites';
 
 /**
  * 获取全部收藏

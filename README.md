@@ -92,11 +92,11 @@
 
 ```bash
 # 拉取预构建镜像
-docker pull ghcr.io/senshinya/moontv:latest
+docker pull ghcr.io/senshinya/ITV:latest
 
 # 运行容器
 # -d: 后台运行  -p: 映射端口 3000 -> 3000
-docker run -d --name moontv -p 3000:3000 ghcr.io/senshinya/moontv:latest
+docker run -d --name ITV -p 3000:3000 ghcr.io/senshinya/ITV:latest
 ```
 
 访问 `http://服务器 IP:3000` 即可。
@@ -106,9 +106,9 @@ docker run -d --name moontv -p 3000:3000 ghcr.io/senshinya/moontv:latest
 ```yaml
 version: '3.9'
 services:
-  moontv:
-    image: ghcr.io/senshinya/moontv:latest
-    container_name: moontv
+  ITV:
+    image: ghcr.io/senshinya/ITV:latest
+    container_name: ITV
     restart: unless-stopped
     ports:
       - '3000:3000'
