@@ -147,9 +147,9 @@ Pull Bot 会反复触发无效的 PR 和垃圾邮件，严重干扰项目维护�
 ```yaml
 version: '3.9'
 services:
-  moontv:
-    image: ghcr.io/senshinya/moontv:latest
-    container_name: moontv
+  ITV:
+    image: ghcr.io/senshinya/ITV:latest
+    container_name: ITV
     restart: unless-stopped
     ports:
       - '3000:3000'
@@ -165,9 +165,9 @@ services:
 ```yaml
 version: '3.9'
 services:
-  moontv:
-    image: ghcr.io/senshinya/moontv:latest
-    container_name: moontv
+  ITV:
+    image: ghcr.io/senshinya/ITV:latest
+    container_name: ITV
     restart: unless-stopped
     ports:
       - '3000:3000'
@@ -180,7 +180,7 @@ services:
     #   - ./config.json:/app/config.json:ro
   redis:
     image: redis
-    container_name: moontv-redis
+    container_name: ITV-redis
     restart: unless-stopped
     # 如需持久化
     # volumes:
